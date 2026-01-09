@@ -47,7 +47,15 @@ func (app *application) getAllEvents(c *gin.Context) {
 	c.JSON(http.StatusOK, events)
 }
 
-// get one event
+// getEvent return a single event
+//
+// @Summary Return a single event
+// @Description Return a single event
+// @Tags Event
+// @Accept json
+// @Produce json
+// @Success 200 {object} database.Event
+// @Router /api/v1/events/:id [get]
 func (app *application) getEvent(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {

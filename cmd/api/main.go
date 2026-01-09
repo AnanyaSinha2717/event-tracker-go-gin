@@ -15,7 +15,7 @@ import (
 // @description A rest API in Go using Gin framework to make an Event Tracker
 // @securityDefinitions.apikey BearerAuth
 // @in header
-//@name Authorization
+// @name Authorization
 // @description Enter your bearer token in the format **Bearer &lt;token&gt;**
 
 type application struct {
