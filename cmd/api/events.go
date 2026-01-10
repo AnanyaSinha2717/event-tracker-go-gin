@@ -29,11 +29,11 @@ func (app *application) createEvent(c *gin.Context) {
 	c.JSON(http.StatusCreated, event)
 }
 
-// getEvents return all events
+// GetEvents return all events
 //
 // @Summary Return all events
 // @Description Return all events
-// @Tags Event
+// @Tags events
 // @Accept json
 // @Produce json
 // @Success 200 {object} []database.Event
@@ -47,15 +47,16 @@ func (app *application) getAllEvents(c *gin.Context) {
 	c.JSON(http.StatusOK, events)
 }
 
-// getEvent return a single event
+// GetEvent return a single event
 //
 // @Summary Return a single event
 // @Description Return a single event
-// @Tags Event
+// @Tags events
 // @Accept json
 // @Produce json
+// @Param id path     int true      "Event ID"
 // @Success 200 {object} database.Event
-// @Router /api/v1/events/:id [get]
+// @Router /api/v1/events/{id} [get]
 func (app *application) getEvent(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
