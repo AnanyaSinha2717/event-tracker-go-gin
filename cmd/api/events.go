@@ -2,9 +2,10 @@ package main
 
 import (
 	"event-tracker-go-gin/internal/database"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 // create event
@@ -77,7 +78,21 @@ func (app *application) getEvent(c *gin.Context) {
 	c.JSON(http.StatusOK, event)
 }
 
-// update event
+// UpdateEvent update an event
+//
+// @Summary Updates an event
+// @Description Update a single event
+// @Tags events
+// @Accept json
+// @Produce json
+// @Param id path     int true      "Event ID"
+// @Param event body database.Event true "Updated event data"
+// @Success 200 {object} database.Event
+// @failure 400 {object} map[string]string
+// @failure 403 {object} map[string]string
+// @failure 404 {object} map[string]string
+// @failure 500 {object} map[string]string
+// @Router /api/v1/events/{id} [put]
 func (app *application) updateEvent(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -118,7 +133,21 @@ func (app *application) updateEvent(c *gin.Context) {
 	c.JSON(http.StatusOK, updateEvent)
 }
 
-// delete event
+// DeleteEvent Delete an event
+//
+// @Summary Deletes an event
+// @Description Delete an event
+// @Tags events
+// @Accept json
+// @Produce json
+// @Param id path     int true      "Event ID"
+// @Param event body database.Event true "Updated event data"
+// @Success 200 {object} database.Event
+// @failure 400 {object} map[string]string
+// @failure 403 {object} map[string]string
+// @failure 404 {object} map[string]string
+// @failure 500 {object} map[string]string
+// @Router /api/v1/events/{id} [delete]
 func (app *application) deleteEvent(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {

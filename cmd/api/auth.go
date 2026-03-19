@@ -24,6 +24,17 @@ type loginResponse struct {
 	Token string `json:"token"`
 }
 
+
+// Login user login
+//
+// @Summary User login
+// @Description login and get JWT token
+// @Tags json
+// @Accept json
+// @Produce json
+// @param credentials body loginRequest "login credentials"
+// @Success 200 {object} loginResponse
+// @Router /api/v1/auth/login [post]
 func (app *application) login(c *gin.Context) {
 	var auth loginRequest
 

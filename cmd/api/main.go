@@ -5,9 +5,10 @@ import (
 	_ "event-tracker-go-gin/docs"
 	"event-tracker-go-gin/internal/database"
 	"event-tracker-go-gin/internal/env"
+	"log"
+
 	_ "github.com/joho/godotenv/autoload"
 	_ "github.com/mattn/go-sqlite3"
-	"log"
 )
 
 // @title Go Gin Rest API
